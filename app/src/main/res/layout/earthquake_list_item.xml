@@ -8,26 +8,30 @@
 
     <TextView
         android:id="@+id/mag"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        tools:text="Mag" />
+        tools:text="Magnitude" />
 
     <TextView
         android:id="@+id/location"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        tools:text="location" />
+        tools:text="Location" />
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        tools:text="date" />
+        tools:text="Date" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:text="Time" />
 
 </LinearLayout>
