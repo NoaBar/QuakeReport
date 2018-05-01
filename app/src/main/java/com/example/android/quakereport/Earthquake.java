@@ -1,6 +1,8 @@
 package com.example.android.quakereport;
 
 
+import android.support.v4.content.ContextCompat;
+
 public class Earthquake {
 
     /**
@@ -49,7 +51,8 @@ public class Earthquake {
         return mTimeInMilliseconds;
     }
 
-    /**
+
+    /** דרך הפתרון שלי, ביודסיטי פתרו אחרת
     public String getDate(){
         Date dateOfEarthquake = new Date(mDate);
         SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, YYYY");
