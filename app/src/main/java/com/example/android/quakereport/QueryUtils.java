@@ -2,15 +2,9 @@ package com.example.android.quakereport;
 
 import android.util.Log;
 import org.json.JSONException;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.ArrayList;
-import java.util.Date;
-
 
 /**
  * Helper methods related to requesting and receiving earthquake data from USGS.
@@ -62,7 +56,7 @@ public final class QueryUtils {
                 JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
 
-                String magnitude = properties.getString("mag");
+                double magnitude = properties.getDouble("mag");
 
                 String location = properties.getString("place");
 

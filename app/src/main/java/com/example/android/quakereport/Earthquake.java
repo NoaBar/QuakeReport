@@ -1,19 +1,17 @@
 package com.example.android.quakereport;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Earthquake {
 
     /**
      * Magnitude of earthquake
      */
-    private String mMag;
+    private double mMag;
 
     /**
      * Loacation of earthquake
      */
-    private String mLoacation;
+    private String mLocation;
 
     /**
      * Time of earthquake
@@ -27,21 +25,21 @@ public class Earthquake {
      * @param location is the Loacation of earthquake
      * @param timeInMilliseconds Date of earthquake
      */
-    public Earthquake(String mag, String location, long timeInMilliseconds){
+    public Earthquake(double mag, String location, long timeInMilliseconds){
         mMag= mag;
-        mLoacation= location;
+        mLocation= location;
         mTimeInMilliseconds= timeInMilliseconds;
     }
 
     /**Getters
      */
 
-    public String getMag(){
+    public double getMag(){
         return mMag;
     }
 
-    public String getLoacation(){
-        return mLoacation;
+    public String getLocation(){
+        return mLocation;
     }
 
     /**

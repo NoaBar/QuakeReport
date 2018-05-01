@@ -11,9 +11,11 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
+    private static final String LOCATION_SEPARATOR = " of ";
     Activity activity;
 
     public EarthquakeAdapter(Activity activity, ArrayList<Earthquake> earthquakes) {
@@ -34,11 +36,34 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Find the earthquake at the given position in the list of earthquakes
         Earthquake currentEarthquake = getItem(position);
 
+        //Displaying the magnitude as a Decimal Value
         TextView mag = (TextView) listItemView.findViewById(R.id.mag);
-        mag.setText(currentEarthquake.getMag());
 
-        TextView location = (TextView) listItemView.findViewById(R.id.location);
-        location.setText(currentEarthquake.getLoacation());
+        DecimalFormat formatter = new DecimalFormat("0.0");
+        String magString = formatter.format(currentEarthquake.getMag());
+
+        mag.setText(magString);
+
+        //splitting the location variable to 2 text parts using the separator "of"
+        TextView location_offset = (TextView) listItemView.findViewById(R.id.location_offset);
+        TextView primary_location = (TextView) listItemView.findViewById(R.id.primary_location);
+
+        String originalLocation = currentEarthquake.getLocation();
+
+        String primaryLocation;
+        String locationOffset;
+
+        if (originalLocation.contains(LOCATION_SEPARATOR)) {
+            String[] parts = originalLocation.split(LOCATION_SEPARATOR);
+            locationOffset = parts[0] + LOCATION_SEPARATOR;
+            primaryLocation = parts[1];
+        } else {
+            locationOffset = getContext().getString(R.string.near_the);
+            primaryLocation = originalLocation;
+        }
+
+        location_offset.setText(locationOffset);
+        primary_location.setText(primaryLocation);
 
         // Create a new Date object from the time in milliseconds of the earthquake
         Date dateObject = new Date(currentEarthquake.getTimeInMilliseconds());
