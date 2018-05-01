@@ -3,6 +3,8 @@ package com.example.android.quakereport;
 
 import android.support.v4.content.ContextCompat;
 
+import java.net.URL;
+
 public class Earthquake {
 
     /**
@@ -21,16 +23,23 @@ public class Earthquake {
     private long mTimeInMilliseconds;
 
     /**
+     * Url of earthquake
+     */
+    private String mUrl;
+
+    /**
      * Constructor
      * Create a new Earthquake object.
      * @param mag is the Magnitude of earthquake
      * @param location is the Loacation of earthquake
      * @param timeInMilliseconds Date of earthquake
+     * @param url URL of earthquake
      */
-    public Earthquake(double mag, String location, long timeInMilliseconds){
+    public Earthquake(double mag, String location, long timeInMilliseconds, String url){
         mMag= mag;
         mLocation= location;
         mTimeInMilliseconds= timeInMilliseconds;
+        mUrl= url;
     }
 
     /**Getters
@@ -51,6 +60,9 @@ public class Earthquake {
         return mTimeInMilliseconds;
     }
 
+    public String getUrl(){
+        return mUrl;
+    }
 
     /** דרך הפתרון שלי, ביודסיטי פתרו אחרת
     public String getDate(){

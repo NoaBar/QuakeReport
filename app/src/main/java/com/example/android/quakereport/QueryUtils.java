@@ -2,6 +2,8 @@ package com.example.android.quakereport;
 
 import android.util.Log;
 import org.json.JSONException;
+
+import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -62,12 +64,12 @@ public final class QueryUtils {
 
                 long time = properties.getLong("time");
 
-                /**Date dateOfEarthquake = new Date(date);
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, YYYY");
-                String dateToDisplay = dateFormatter.format(dateOfEarthquake);
-                 **/
+                String url = properties.getString("url");
 
-                Earthquake earthquake = new Earthquake(magnitude, location, time);
+
+                // Create a new {@link Earthquake} object with the magnitude, location, time,
+                // and url from the JSON response.
+                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
                 earthquakes.add(earthquake);
             }
 
