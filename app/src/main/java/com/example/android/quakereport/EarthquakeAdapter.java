@@ -50,13 +50,12 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Set the proper background color on the magnitude circle.
         // Fetch the background from the TextView, which is a GradientDrawable.
         GradientDrawable magnitudeCircle = (GradientDrawable) mag.getBackground();
-
         // Get the appropriate background color based on the current earthquake magnitude
         int magnitudeColor = getMagnitudeColor(currentEarthquake.getMag());
         // Set the color on the magnitude circle
         magnitudeCircle.setColor(magnitudeColor);
 
-        
+
         //splitting the location variable to 2 text parts using the separator "of"
         TextView location_offset = (TextView) listItemView.findViewById(R.id.location_offset);
         TextView primary_location = (TextView) listItemView.findViewById(R.id.primary_location);
@@ -115,6 +114,11 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     private int getMagnitudeColor(double magnitude){
         int magnitudeColorResourceId;
+        //According to the documentation, the switch statement cannot accept a double value,
+        // so we should convert our decimal magnitude value into an integer.
+        //We can use the Math class to do some handy mathematical calculations.
+        // In this case, we can take the “floor” of the decimal magnitude value.
+        // This means finding the closest integer less than the decimal value.
         int magnitudeFloor = (int) Math.floor(magnitude);
         switch (magnitudeFloor) {
             case 0:
@@ -149,6 +153,8 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
                 magnitudeColorResourceId = R.color.magnitude10plus;
                 break;
         }
+        //You can call ContextCompat getColor() to convert the color resource ID into an actual integer color value,
+        // and return the result as the return value of the getMagnitudeColor() helper method.
         return ContextCompat.getColor(getContext(), magnitudeColorResourceId);
     }
 }
