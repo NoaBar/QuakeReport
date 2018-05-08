@@ -2,8 +2,6 @@ package com.example.android.quakereport;
 
 import android.util.Log;
 import org.json.JSONException;
-
-import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
