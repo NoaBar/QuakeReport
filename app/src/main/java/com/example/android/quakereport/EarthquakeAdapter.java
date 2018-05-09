@@ -22,11 +22,9 @@ import android.support.v4.content.ContextCompat;
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     private static final String LOCATION_SEPARATOR = " of ";
-    Activity activity;
 
     public EarthquakeAdapter(Activity activity, ArrayList<Earthquake> earthquakes) {
         super(activity, 0, earthquakes);
-        this.activity = activity;
     }
 
     @NonNull
