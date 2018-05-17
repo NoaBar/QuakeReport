@@ -1,10 +1,5 @@
 package com.example.android.quakereport;
 
-
-import android.support.v4.content.ContextCompat;
-
-import java.net.URL;
-
 public class Earthquake {
 
     /**
